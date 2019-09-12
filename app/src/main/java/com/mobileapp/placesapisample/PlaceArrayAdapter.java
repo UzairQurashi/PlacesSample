@@ -114,15 +114,15 @@
 //
 //    @Override
 //    public View getView(int position, View convertView,  @NonNull ViewGroup parent) {
-//        if (convertView == null) {
-//            convertView = LayoutInflater.from(parent.getContext())
-//                    .inflate(R.layout.places_item_layout, parent, false);
-//        }
 //
-//        TextView strName = (TextView) convertView.findViewById(R.id.place_name);
-//        strName.setText(getItem(position).description.toString());
-//        return convertView;
-//
+// if (convertView == null) {
+////            convertView = LayoutInflater.from(parent.getContext())
+////                    .inflate(R.layout.places_item_layout, parent, false);
+////        }
+////
+////        TextView strName = (TextView) convertView.findViewById(R.id.place_name);
+////        strName.setText(getItem(position).description.toString());
+////        return convertView;
 //    }
 //
 //    @Override

@@ -39,7 +39,8 @@ public class PlacesSearch extends AppCompatActivity  {
 
     private static final int GOOGLE_API_CLIENT_ID = 0;
     private GoogleApiClient mGoogleApiClient;
-   // private PlaceArrayAdapter mPlaceArrayAdapter;
+    private PlacesArrayAdapter mPlaceArrayAdapter;
+    // private PlaceArrayAdapter mPlaceArrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +59,21 @@ public class PlacesSearch extends AppCompatActivity  {
 //                null, null);
 //        rootView.placesTextview.setAdapter(mPlaceArrayAdapter);
 
-       rootView.placesTextview.addTextChangedListener(new onTextChangeListner());
+       //rootView.placesTextview.addTextChangedListener(new onTextChangeListner());
+        initializePlacesAdapter();
+    }
+
+    /**
+     *
+     */
+    private void initializePlacesAdapter() {
+        Places.initialize(getApplicationContext(), getResources().getString(R.string.api_key));
+        // Create a new Places client instance.
+        PlacesClient placesClient = Places.createClient(this);
+//        rootView.placeSearch.setOnItemClickListener(mAutocompleteClickListener);
+        mPlaceArrayAdapter = new PlacesArrayAdapter(this,
+                R.layout.places_item_layout, null,placesClient);
+        rootView.placesTextview.setAdapter(mPlaceArrayAdapter);
     }
 
     //================================================== Local callbacks ===================================================================================//
